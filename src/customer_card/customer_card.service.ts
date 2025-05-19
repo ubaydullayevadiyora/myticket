@@ -7,12 +7,13 @@ import { Model } from "mongoose";
 @Injectable()
 export class CustomerCardService {
   constructor(
-    @InjectModel(CustomerCard.name) private customerCardSchema: Model<CustomerCard>
+    @InjectModel(CustomerCard.name)
+    private customerCardSchema: Model<CustomerCard>
   ) {}
   async create(createCustomerCardDto: CreateCustomerCardDto) {
-      const created = new this.customerCardSchema(createCustomerCardDto);
-      return await created.save();
-    }
+    const created = new this.customerCardSchema(createCustomerCardDto);
+    return await created.save();
+  }
 
   findAll() {
     return this.customerCardSchema.find();
